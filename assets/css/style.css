@@ -1,26 +1,86 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background: hsla(13, 42%, 78%, 1);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: hsla(13, 42%, 78%, 1);
 
-    background: linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, hsla(353, 88%, 68%, 1) 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
+  background: linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, #f56676 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
 
-    background: -moz-linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, hsla(353, 88%, 68%, 1) 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
+  background: -moz-linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, hsla(353, 88%, 68%, 1) 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
 
-    background: -webkit-linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, hsla(353, 88%, 68%, 1) 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
+  background: -webkit-linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, hsla(353, 88%, 68%, 1) 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
 
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#dfbbb1", endColorstr="#f56476", GradientType=1);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#dfbbb1", endColorstr="#f56476", GradientType=1);
 }
 
+.game-box {
+  width: 400px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+
+#title {
+  text-align: center;
+  text-decoration: underline;
+  color: #d60064;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-transform: uppercase;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+
+#flag,
+#answer,
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit {
+  background-color: #d1d1d1;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  padding: 3px;
+  margin: 5px;
+  font-size: large;
+}
+
+#submit:hover {
+  background-color: #909292;
+}
+
+.ctrl-btn {
+  background-color: #89DAFF;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  padding: 8px;
+  margin: 10px;
+  font-size: large;
+}
+
+
+.ctrl-btn:hover {
+  background-color: #36befd;
+}
+
+.score {
+  font-size: large;
+}

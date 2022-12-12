@@ -6,20 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <title>Flags Galore</title>
 </head>
 
 <body>
+    
     <div class="game-box">
+        <div><h1 id="title">Flags Galore</h1></div>
         <div class="question-area">
             <div id="flag"></div>
             <div id="answer">
                 <input id="answer-box" type="text">
+                <input id="submit" type="submit">
             </div>
         </div>
         <div class="controls">
-            <button id="start-btn">Start</button>
-            <button id="next-btn">Next</button>
+            <button id="start" class="ctrl-btn">START</button>
+            <button id="next" class="ctrl-btn hide">NEXT</button>
+        </div>
+        <div>
+            <span class="score">Score: <span class="score" id="score-count">0</span></span>
         </div>
     </div>
 
