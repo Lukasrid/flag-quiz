@@ -17,12 +17,30 @@ document.addEventListener("DOMContentLoaded", function () {
     sbox.style.display = 'none';
 });
 
-let shuffledQuestions, currentQuestionIndex
+let flags = {
+    argentina: `<img src="assets/images/Argentina.gif" alt="Flag of Argentina">`,
+    australia: `<img src="assets/images/Australia.gif" alt="Flag of Australia">`,
+    belgium: `<img src="assets/images/Belgium.gif" alt="Flag of Belgium">`,
+    brazil: `<img src="assets/images/Brazil.gif" alt="Flag of Brazil">`,
+    cambodia: `<img src="assets/images/Cambodia.gif" alt="Flag of Cambodia">`,
+    canada: `<img src="assets/images/Canada.gif" alt="Flag of Canada">`,
+    china: `<img src="assets/images/China.gif" alt="Flag of China">`,
+    france: `<img src="assets/images/France.gif" alt="Flag of France">`,
+    germany: `<img src="assets/images/Germany.gif" alt="Flag of Germany">`,
+    india: `<img src="assets/images/India.gif" alt="Flag of India">`,
+    jamaica: `<img src="assets/images/Jamaica.gif" alt="Flag of Jamaica">`,
+    norway: `<img src="assets/images/Norway.gif" alt="Flag of Norway">`,
+    'south korea': `<img src="assets/images/South Korea.gif" alt="Flag of South Korea">`,
+    sweden: `<img src="assets/images/Sweden.gif" alt="Flag of Sweden">`,
+    vietnam: `<img src="assets/images/Vietnam.gif" alt="Flag of Vietnam">`,
+};
+
+let shuffledFlags, currentFlagIndex
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
-    currentQuestionIndex++
-    setNextQuestion()
+    currentFlagIndex++
+    setNextFlag()
 })
 
 function startGame() {
