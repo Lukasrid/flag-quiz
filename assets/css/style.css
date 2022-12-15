@@ -45,11 +45,18 @@ body {
 }
 
 #flag,
-#answer,
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#answer {
+  margin-left: 100px;
+}
+
+#answer-box {
+  
 }
 
 img {

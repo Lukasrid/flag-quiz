@@ -1,9 +1,10 @@
 const startButton = document.getElementById('start');
 const nextButton = document.getElementById('next');
-const answer = document.getElementById('answer-box');
-const submit = document.getElementById('submit');
+//const answer = document.getElementById('answer-box');
+//const submit = document.getElementById('submit');
 const score = document.getElementById('score-count')
 const sbox = document.getElementById('sbox')
+let currentFlag;
 
 
 
@@ -39,11 +40,9 @@ let flags = {
 let shuffledFlags, currentFlagIndex
 
 startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
-    currentFlagIndex++
-    setNextFlag()
-})
 
+/* Hides start button and reveals the other elements of the game.
+Generates a random flag from the flags variable and displays it. */
 function startGame() {
     startButton.style.visibility = 'hidden';
     startButton.style.display = 'none';
@@ -56,7 +55,7 @@ function startGame() {
     sbox.style.visibility = 'visible';
     sbox.style.display = 'inline';
 
-    const randomFlag = (flags) => {
+    const randomFlag = () => {
         const keys = Object.keys(flags);
         if (keys.length > 0) {
             const index = Math.floor(keys.length * Math.random());
@@ -67,15 +66,28 @@ function startGame() {
         return null;
     };
     const property = randomFlag(flags);
-    //console.log(`key:   ${property.key}  `);
+    currentFlag = property.key
     document.getElementById('flag').innerHTML = `${property.value}`;
+    console.log(currentFlag)
+    return(currentFlag)
 }
 
-
+let submit = document.getElementById('submit')
+submit.addEventListener('click', submitAnswer)
 
 function submitAnswer() {
-
+    let currentAnswer = document.getElementById('answer-box').value;
+    let modAnswer = currentAnswer.toLowerCase();
+    console.log(modAnswer)
+    //string.toLowerCase(currentAnswer)
+    if (currentFlag === modAnswer) {
+        console.log('Correct!')
+    } else {
+        console.log('Incorrect')
+    }
 }
+
+
 
 function nextQuestion() {
 
