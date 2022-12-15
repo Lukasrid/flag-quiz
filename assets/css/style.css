@@ -52,6 +52,11 @@ body {
   align-items: center;
 }
 
+#flag {
+  margin-bottom: 50px;
+  max-width: 90%;
+}
+
 #submit {
   background-color: #d1d1d1;
   border-radius: 5px;

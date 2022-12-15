@@ -1,10 +1,11 @@
 const startButton = document.getElementById('start');
 const nextButton = document.getElementById('next');
-const flags = document.getElementById('flag');
 const answer = document.getElementById('answer-box');
 const submit = document.getElementById('submit');
 const score = document.getElementById('score-count')
 const sbox = document.getElementById('sbox')
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     nextButton.style.visibility = 'hidden';
@@ -54,7 +55,23 @@ function startGame() {
     submit.style.display = 'inline';
     sbox.style.visibility = 'visible';
     sbox.style.display = 'inline';
+
+    const randomFlag = (flags) => {
+        const keys = Object.keys(flags);
+        if (keys.length > 0) {
+            const index = Math.floor(keys.length * Math.random());
+              const key = keys[index];
+            const value = flags[key];
+            return {index, key, value}
+        }
+        return null;
+    };
+    const property = randomFlag(flags);
+    //console.log(`key:   ${property.key}  `);
+    document.getElementById('flag').innerHTML = `${property.value}`;
 }
+
+
 
 function submitAnswer() {
 
