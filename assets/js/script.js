@@ -1,7 +1,7 @@
 const startButton = document.getElementById('start');
 const nextButton = document.getElementById('next');
-//const answer = document.getElementById('answer-box');
-//const submit = document.getElementById('submit');
+const answer = document.getElementById('answer-box');
+const submit = document.getElementById('submit');
 const score = document.getElementById('score-count')
 const sbox = document.getElementById('sbox')
 const correct = document.getElementById('correct')
@@ -44,7 +44,6 @@ let flags = {
     vietnam: `<img src="assets/images/Vietnam.gif" alt="Flag of Vietnam">`,
 };
 
-let shuffledFlags, currentFlagIndex
 
 startButton.addEventListener('click', startGame)
 
@@ -62,8 +61,8 @@ function startGame() {
     sbox.style.visibility = 'visible';
     sbox.style.display = 'inline';
 
-    const randomFlag = () => {
-        const keys = Object.keys(flags);
+    let randomFlag = () => {
+        let keys = Object.keys(flags);
         if (keys.length > 0) {
             const index = Math.floor(keys.length * Math.random());
               const key = keys[index];
@@ -75,13 +74,14 @@ function startGame() {
     const property = randomFlag(flags);
     currentFlag = property.key
     document.getElementById('flag').innerHTML = `${property.value}`;
-    console.log(currentFlag)
-    return(currentFlag)
 }
 
-let submit = document.getElementById('submit')
 submit.addEventListener('click', submitAnswer)
 
+/*
+Checks the answer written with the answer associated with the flag.
+Tells the user wether they are correct or not and increments the score by 2 if correct.
+*/
 function submitAnswer() {
     let currentAnswer = document.getElementById('answer-box').value;
     let modAnswer = currentAnswer.toLowerCase();
@@ -92,7 +92,7 @@ function submitAnswer() {
         correct.innerHTML = `CORRECT!`;
         submit.disabled = true;
         var number = score.innerHTML;
-        number =+ 2;
+        number++;
         score.innerHTML = number;
     } else {
         incorrect.style.visibility = 'visible';
@@ -102,8 +102,30 @@ function submitAnswer() {
     }
 }
 
-
+nextButton.addEventListener('click', nextQuestion)
 
 function nextQuestion() {
-
+    correct.style.visibility = 'hidden';
+    correct.style.display = 'none';
+    incorrect.style.visibility = 'hidden';
+    incorrect.style.display = 'none';
+    submit.disabled = false;
+    document.getElementById('flag').innerHTML = ``
+    answer.value = ``;
+    delete flags[currentFlag]
+    
+    console.log(flags)
+    let randomFlag = () => {
+        let keys = Object.keys(flags);
+        if (keys.length > 0) {
+            const index = Math.floor(keys.length * Math.random());
+              const key = keys[index];
+            const value = flags[key];
+            return {index, key, value}
+        }
+        return null;
+    };
+    const property = randomFlag(flags);
+    currentFlag = property.key
+    document.getElementById('flag').innerHTML = `${property.value}`;
 }
