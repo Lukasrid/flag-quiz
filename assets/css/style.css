@@ -51,6 +51,24 @@ body {
   align-items: center;
 }
 
+#correct {
+  color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: larger;
+}
+
+#incorrect {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: larger;
+}
+
 #answer {
   margin-left: 100px;
 }
@@ -64,7 +82,7 @@ img {
 }
 
 #flag {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   max-width: 380px;
 }
 

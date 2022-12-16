@@ -4,6 +4,8 @@ const nextButton = document.getElementById('next');
 //const submit = document.getElementById('submit');
 const score = document.getElementById('score-count')
 const sbox = document.getElementById('sbox')
+const correct = document.getElementById('correct')
+const incorrect = document.getElementById('incorrect')
 let currentFlag;
 
 
@@ -17,6 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     submit.style.display = 'none';
     sbox.style.visibility = 'hidden';
     sbox.style.display = 'none';
+    correct.style.visibility = 'hidden';
+    correct.style.display = 'none';
+    incorrect.style.visibility = 'hidden';
+    incorrect.style.display = 'none';
+
 });
 
 let flags = {
@@ -79,11 +86,19 @@ function submitAnswer() {
     let currentAnswer = document.getElementById('answer-box').value;
     let modAnswer = currentAnswer.toLowerCase();
     console.log(modAnswer)
-    //string.toLowerCase(currentAnswer)
     if (currentFlag === modAnswer) {
-        console.log('Correct!')
+        correct.style.visibility = 'visible';
+        correct.style.display = 'flex';
+        correct.innerHTML = `CORRECT!`;
+        submit.disabled = true;
+        var number = score.innerHTML;
+        number =+ 2;
+        score.innerHTML = number;
     } else {
-        console.log('Incorrect')
+        incorrect.style.visibility = 'visible';
+        incorrect.style.display = 'flex';
+        incorrect.innerHTML = `INCORRECT...`;
+        submit.disabled = true;
     }
 }
 
