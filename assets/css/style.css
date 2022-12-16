@@ -24,13 +24,14 @@ body {
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#dfbbb1", endColorstr="#f56476", GradientType=1);
 }
 
-.game-box {
+#game-box {
   width: 400px;
   max-width: 80%;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
+  text-align: center;
 }
 
 #title {
