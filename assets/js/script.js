@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let flags = {
     argentina: `<img src="assets/images/Argentina.gif" alt="Flag of Argentina">`,
-    /*australia: `<img src="assets/images/Australia.gif" alt="Flag of Australia">`,
+    australia: `<img src="assets/images/Australia.gif" alt="Flag of Australia">`,
     belgium: `<img src="assets/images/Belgium.gif" alt="Flag of Belgium">`,
     brazil: `<img src="assets/images/Brazil.gif" alt="Flag of Brazil">`,
     cambodia: `<img src="assets/images/Cambodia.gif" alt="Flag of Cambodia">`,
@@ -44,7 +44,7 @@ let flags = {
     norway: `<img src="assets/images/Norway.gif" alt="Flag of Norway">`,
     'south korea': `<img src="assets/images/South Korea.gif" alt="Flag of South Korea">`,
     sweden: `<img src="assets/images/Sweden.gif" alt="Flag of Sweden">`,
-    vietnam: `<img src="assets/images/Vietnam.gif" alt="Flag of Vietnam">`,*/
+    vietnam: `<img src="assets/images/Vietnam.gif" alt="Flag of Vietnam">`,
 };
 
 
@@ -63,6 +63,8 @@ function startGame() {
     submit.style.display = 'inline';
     sbox.style.visibility = 'visible';
     sbox.style.display = 'inline';
+
+    nextButton.disabled = true;
 
     let randomFlag = () => {
         let keys = Object.keys(flags);
@@ -87,12 +89,12 @@ submit.addEventListener('click', submitAnswer)
 
 /*
 Checks the answer written with the answer associated with the flag.
-Tells the user wether they are correct or not and increments the score by 2 if correct.
+Tells the user wether they are correct or not and increments the score by 1 if correct.
 */
 function submitAnswer() {
     let currentAnswer = document.getElementById('answer-box').value;
     let modAnswer = currentAnswer.toLowerCase();
-    console.log(modAnswer)
+    
     if (currentFlag === modAnswer) {
         correct.style.visibility = 'visible';
         correct.style.display = 'flex';
@@ -104,9 +106,11 @@ function submitAnswer() {
     } else {
         incorrect.style.visibility = 'visible';
         incorrect.style.display = 'flex';
-        incorrect.innerHTML = `INCORRECT...`;
+        let answerFlag = currentFlag.toUpperCase()
+        incorrect.innerHTML = `INCORRECT...<br>It was ${answerFlag}`;
         submit.disabled = true;
     }
+    nextButton.disabled = false;
 }
 
 nextButton.addEventListener('click', nextQuestion)
@@ -121,14 +125,15 @@ function nextQuestion() {
     document.getElementById('flag').innerHTML = ``
     answer.value = ``;
     delete flags[currentFlag]
+    nextButton.disabled = true;
 
     if (Object.keys(flags).length === 0) {
         let endScreen = document.getElementById('game-box');
         endScreen.innerHTML = `<h1>CONGRATULATIONS!</h1><br>
-            <h2>You scored ${score.textContent} points</h2><br>`
-            
-        restartButton.style.visibility = 'visible';
-        restartButton.style.display = 'inline';    
+            <h2>You scored ${score.textContent} of 15 points</h2><br>`;
+
+            restartButton.style.visibility = 'visible';
+            restartButton.style.display = 'inline'; 
     } else {
         let randomFlag = () => {
             let keys = Object.keys(flags);
