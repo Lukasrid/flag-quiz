@@ -42,7 +42,14 @@ body {
   -webkit-text-stroke-color: black;
   text-transform: uppercase;
   font-size: 3em;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+#flag-count{
+  font-size: 1.5em;
+} 
+.count-text {
+  display: inline;
 }
 
 #flag,

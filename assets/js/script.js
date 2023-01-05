@@ -7,6 +7,8 @@ const score = document.getElementById('score-count')
 const sbox = document.getElementById('sbox')
 const correct = document.getElementById('correct')
 const incorrect = document.getElementById('incorrect')
+const flagCount = document.getElementById('flag-count')
+const flagNumber = document.getElementById('flag-number')
 let currentFlag;
 
 
@@ -26,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
     correct.style.display = 'none';
     incorrect.style.visibility = 'hidden';
     incorrect.style.display = 'none';
-
+    flagCount.style.visibility = 'hidden';
+    flagCount.style.display = 'none';
 });
 
 let flags = {
@@ -63,6 +66,8 @@ function startGame() {
     submit.style.display = 'inline';
     sbox.style.visibility = 'visible';
     sbox.style.display = 'inline';
+    flagCount.style.visibility = 'visible';
+    flagCount.style.display = 'inline';
 
     nextButton.disabled = true;
 
@@ -126,14 +131,17 @@ function nextQuestion() {
     answer.value = ``;
     delete flags[currentFlag]
     nextButton.disabled = true;
+    var number = flagNumber.innerHTML;
+        number++;
+        flagNumber.innerHTML = number;
 
-    if (Object.keys(flags).length === 0) {
-        let endScreen = document.getElementById('game-box');
+    if (Object.keys(flags).length === 8) {
+        let endScreen = document.getElementById('main-area');
         endScreen.innerHTML = `<h1>CONGRATULATIONS!</h1><br>
-            <h2>You scored ${score.textContent} of 15 points</h2><br>`;
+            <h2>You scored ${score.textContent} of 8 points</h2><br>`;
 
-            restartButton.style.visibility = 'visible';
-            restartButton.style.display = 'inline'; 
+        restartButton.style.visibility = 'visible';
+        restartButton.style.display = 'inline'; 
     } else {
         let randomFlag = () => {
             let keys = Object.keys(flags);
@@ -159,45 +167,5 @@ restartButton.addEventListener('click', restartGame)
 
 function restartGame() {
     window.location.reload()
-    /*let flags = {
-        argentina: `<img src="assets/images/Argentina.gif" alt="Flag of Argentina">`,
-        australia: `<img src="assets/images/Australia.gif" alt="Flag of Australia">`,
-        belgium: `<img src="assets/images/Belgium.gif" alt="Flag of Belgium">`,
-        brazil: `<img src="assets/images/Brazil.gif" alt="Flag of Brazil">`,
-        cambodia: `<img src="assets/images/Cambodia.gif" alt="Flag of Cambodia">`,
-        canada: `<img src="assets/images/Canada.gif" alt="Flag of Canada">`,
-        china: `<img src="assets/images/China.gif" alt="Flag of China">`,
-        france: `<img src="assets/images/France.gif" alt="Flag of France">`,
-        germany: `<img src="assets/images/Germany.gif" alt="Flag of Germany">`,
-        india: `<img src="assets/images/India.gif" alt="Flag of India">`,
-        jamaica: `<img src="assets/images/Jamaica.gif" alt="Flag of Jamaica">`,
-        norway: `<img src="assets/images/Norway.gif" alt="Flag of Norway">`,
-        'south korea': `<img src="assets/images/South Korea.gif" alt="Flag of South Korea">`,
-        sweden: `<img src="assets/images/Sweden.gif" alt="Flag of Sweden">`,
-        vietnam: `<img src="assets/images/Vietnam.gif" alt="Flag of Vietnam">`,
-    };
-
-    endScreen.innerHTML = `
-        <div><h1 id="title">Flags Galore</h1></div>
-        <div class="question-area">
-            <div id="flag"></div>
-            <div id="correct"></div>
-            <div id="incorrect"></div>
-            <div id="answer">
-                <input id="answer-box" type="text">
-                <button id="submit">Submit</button>
-            </div>
-        </div>
-        <div class="controls">
-            <button id="start" class="ctrl-btn">START</button>
-            <button id="next" class="ctrl-btn hide">NEXT</button>
-        </div>
-        <div class="score" id="sbox">
-            <span>Score: <span id="score-count">0</span></span>
-        </div>
-    `
-    startGame()
-
-    console.log('succes')*/
 }
 

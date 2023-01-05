@@ -10,10 +10,11 @@
 </head>
 
 <body>
-    
-    <div id="game-box">
+    <main id="game-box">
+    <div id="main-area">
         <div><h1 id="title">Flags Galore</h1></div>
         <div class="question-area">
+            <div id="flag-count"><p class="count-text">Flag <p class="count-text" id="flag-number">1</p>/8</p></div>
             <div id="flag"></div>
             <div id="correct"></div>
             <div id="incorrect"></div>
@@ -25,14 +26,14 @@
         <div class="controls">
             <button id="start" class="ctrl-btn">START</button>
             <button id="next" class="ctrl-btn hide">NEXT</button>
-            <button id="restart" class="ctrl-btn">RESTART</button>
+            
         </div>
         <div class="score" id="sbox">
             <span>Score: <span id="score-count">0</span></span>
         </div>
     </div>
-
-
+    <button id="restart" class="ctrl-btn">RESTART</button>
+    </main>
 
     <script src="assets/js/script.js"></script>
 </body>
