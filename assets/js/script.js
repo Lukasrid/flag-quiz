@@ -107,6 +107,7 @@ function submitAnswer() {
         submit.disabled = true;
         var number = score.innerHTML;
         number++;
+        number++;
         score.innerHTML = number;
     } else {
         incorrect.style.visibility = 'visible';
@@ -138,7 +139,7 @@ function nextQuestion() {
     if (Object.keys(flags).length === 8) {
         let endScreen = document.getElementById('main-area');
         endScreen.innerHTML = `<h1>CONGRATULATIONS!</h1><br>
-            <h2>You scored ${score.textContent} of 8 points</h2><br>`;
+            <h2>You scored ${score.textContent} of 14 points</h2><br>`;
 
         restartButton.style.visibility = 'visible';
         restartButton.style.display = 'inline'; 
