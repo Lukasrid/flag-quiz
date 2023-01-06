@@ -119,6 +119,12 @@ function submitAnswer() {
     nextButton.disabled = false;
 }
 
+answer.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    submit.click();
+  }
+});
+
 nextButton.addEventListener('click', nextQuestion)
 
 function nextQuestion() {
@@ -163,6 +169,13 @@ function nextQuestion() {
         document.getElementById('flag').innerHTML = `${property.value}`;
     }
 }
+
+
+    html.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    nextButton.click();
+  }
+});
 
 restartButton.addEventListener('click', restartGame)
 
