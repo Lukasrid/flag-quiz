@@ -58,5 +58,18 @@ Flags Galore is a trivia game where a random flag is presented and the user has 
 - ### Lighthouse
     - Lighthouse gave a good score across all areas
     ![Lighthouse report](/assets/images/readme/lighthouse.PNG)
+- ### Validator Testing
+    - #### HTML
+        - One error was found when passed through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Flukasrid.github.io%2Fflag-quiz%2F). It says an opening p tag is needed but it is already there. No action was taken for this. 
+    - #### CSS 
+        - A few errors were produced when passed through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Flukasrid.github.io%2Fflag-quiz%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en). This is due to the background gradient color taken from [coolors.co](https://coolors.co/). The background gradient works fine, so no action was taken for this.
+    - #### JavaScript
+        - The javascript syntax was checked on multiple sites and no syntax errors were found.
+## Deployment
+- The Website was deployed through the hosting platform [GitHub](https://github.com/).
 
-
+## Credits
+- ### Images
+    - All images were taken from [Worldometer](https://www.worldometers.info/geography/flags-of-the-world/).
+- ### Colors
+    - The color pallete was created with [Coolors](https://coolors.co/).

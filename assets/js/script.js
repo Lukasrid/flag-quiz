@@ -1,14 +1,14 @@
 const startButton = document.getElementById('start');
 const nextButton = document.getElementById('next');
-const restartButton = document.getElementById('restart')
+const restartButton = document.getElementById('restart');
 const answer = document.getElementById('answer-box');
 const submit = document.getElementById('submit');
-const score = document.getElementById('score-count')
-const sbox = document.getElementById('sbox')
-const correct = document.getElementById('correct')
-const incorrect = document.getElementById('incorrect')
-const flagCount = document.getElementById('flag-count')
-const flagNumber = document.getElementById('flag-number')
+const score = document.getElementById('score-count');
+const sbox = document.getElementById('sbox');
+const correct = document.getElementById('correct');
+const incorrect = document.getElementById('incorrect');
+const flagCount = document.getElementById('flag-count');
+const flagNumber = document.getElementById('flag-number');
 let currentFlag;
 
 
@@ -51,7 +51,7 @@ let flags = {
 };
 
 
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', startGame);
 
 /* Hides start button and reveals the other elements of the game.
 Generates a random flag from the flags variable and displays it. */
@@ -81,16 +81,16 @@ function startGame() {
                 index,
                 key,
                 value
-            }
+            };
         }
         return null;
     };
     const property = randomFlag(flags);
-    currentFlag = property.key
+    currentFlag = property.key;
     document.getElementById('flag').innerHTML = `${property.value}`;
 }
 
-submit.addEventListener('click', submitAnswer)
+submit.addEventListener('click', submitAnswer);
 
 /*
 Checks the answer written with the answer associated with the flag.
@@ -112,7 +112,7 @@ function submitAnswer() {
     } else {
         incorrect.style.visibility = 'visible';
         incorrect.style.display = 'flex';
-        let answerFlag = currentFlag.toUpperCase()
+        let answerFlag = currentFlag.toUpperCase();
         incorrect.innerHTML = `INCORRECT...<br>It was ${answerFlag}`;
         submit.disabled = true;
     }
@@ -125,7 +125,7 @@ answer.addEventListener("keypress", function (event) {
     }
 });
 
-nextButton.addEventListener('click', nextQuestion)
+nextButton.addEventListener('click', nextQuestion);
 
 function nextQuestion() {
 
@@ -134,9 +134,9 @@ function nextQuestion() {
     incorrect.style.visibility = 'hidden';
     incorrect.style.display = 'none';
     submit.disabled = false;
-    document.getElementById('flag').innerHTML = ``
+    document.getElementById('flag').innerHTML = ``;
     answer.value = ``;
-    delete flags[currentFlag]
+    delete flags[currentFlag];
     nextButton.disabled = true;
     var number = flagNumber.innerHTML;
     number++;
@@ -160,7 +160,7 @@ function nextQuestion() {
                     index,
                     key,
                     value
-                }
+                };
             }
             return null;
         };
@@ -170,8 +170,8 @@ function nextQuestion() {
     }
 }
 
-restartButton.addEventListener('click', restartGame)
+restartButton.addEventListener('click', restartGame);
 
 function restartGame() {
-    window.location.reload()
+    window.location.reload();
 }
