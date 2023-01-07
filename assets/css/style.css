@@ -13,6 +13,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  
   background: hsla(13, 42%, 78%, 1);
 
   background: linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, #f56676 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
@@ -22,6 +23,8 @@ body {
   background: -webkit-linear-gradient(315deg, hsla(13, 42%, 78%, 1) 0%, hsla(353, 88%, 68%, 1) 50%, hsla(343, 75%, 57%, 1) 66%, hsla(328, 51%, 49%, 1) 100%, hsla(327, 17%, 32%, 1) 100%);
 
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#dfbbb1", endColorstr="#f56476", GradientType=1);
+  
+  background-repeat: no-repeat;
 }
 
 #game-box {
