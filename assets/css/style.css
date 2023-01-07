@@ -45,9 +45,10 @@ body {
   margin-bottom: 20px;
 }
 
-#flag-count{
+#flag-count {
   font-size: 1.5em;
-} 
+}
+
 .count-text {
   display: inline;
 }
@@ -121,4 +122,12 @@ img {
 
 .score {
   font-size: large;
+}
+
+/*For medium screen sizes from 550px and down */
+@media screen and (max-width: 550px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

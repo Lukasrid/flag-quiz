@@ -99,7 +99,7 @@ Tells the user wether they are correct or not and increments the score by 1 if c
 function submitAnswer() {
     let currentAnswer = document.getElementById('answer-box').value;
     let modAnswer = currentAnswer.toLowerCase();
-    
+
     if (currentFlag === modAnswer) {
         correct.style.visibility = 'visible';
         correct.style.display = 'flex';
@@ -119,10 +119,10 @@ function submitAnswer() {
     nextButton.disabled = false;
 }
 
-answer.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    submit.click();
-  }
+answer.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        submit.click();
+    }
 });
 
 nextButton.addEventListener('click', nextQuestion)
@@ -139,8 +139,8 @@ function nextQuestion() {
     delete flags[currentFlag]
     nextButton.disabled = true;
     var number = flagNumber.innerHTML;
-        number++;
-        flagNumber.innerHTML = number;
+    number++;
+    flagNumber.innerHTML = number;
 
     if (Object.keys(flags).length === 8) {
         let endScreen = document.getElementById('main-area');
@@ -148,7 +148,7 @@ function nextQuestion() {
             <h2>You scored ${score.textContent} of 14 points</h2><br>`;
 
         restartButton.style.visibility = 'visible';
-        restartButton.style.display = 'inline'; 
+        restartButton.style.display = 'inline';
     } else {
         let randomFlag = () => {
             let keys = Object.keys(flags);
@@ -170,16 +170,8 @@ function nextQuestion() {
     }
 }
 
-
-    html.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    nextButton.click();
-  }
-});
-
 restartButton.addEventListener('click', restartGame)
 
 function restartGame() {
     window.location.reload()
 }
-
